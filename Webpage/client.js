@@ -19,11 +19,41 @@ app.get('/home', async(req,res) => {const url =
 const options = {
     method: 'GET'
 };
-// promise syntax
-/*fetch(url, options)
-    .then(res => res.json())
-    .then(json => console.log(json))
-    .catch(err => console.error('error:' + err));*/
+
+try {
+    let response = await fetch(url, options);
+    response = await response.json();
+    console.log("do we get here")
+    res.status(200).json(response);
+} catch (err) {
+    console.log(err);
+    res.status(500).json({msg: `Internal Server Error.`});
+}
+});
+
+app.get('/:place', async(req,res) => {const url =
+    'http://localhost:8080/data/'+ req.params.place;
+const options = {
+    method: 'GET'
+};
+
+try {
+    let response = await fetch(url, options);
+    response = await response.json();
+    console.log("do we get here")
+    res.status(200).json(response);
+} catch (err) {
+    console.log(err);
+    res.status(500).json({msg: `Internal Server Error.`});
+}
+
+});
+app.get('/forecast/:place', async(req,res) => {const url =
+    'http://localhost:8080/forecast/'+ req.params.place;
+const options = {
+    method: 'GET'
+};
+
 try {
     let response = await fetch(url, options);
     response = await response.json();
