@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Page1</title>
+    <script src="index1.js"></script>
+  </head>
+  <body>
+      <style>
+          .container{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: 50px;
+          }
+
+          .table{
+              border: 1px solid black;
+          }
+
+
+          #dropdown{
+              font-size: 24px;
+              width: 120px;
+          }
+
+          #button{
+              height: 24px;
+              background-color: rgb(85, 152, 174);
+              border-radius: 5px;
+              border: 1px solid black;
+              cursor: pointer;
+              font-size: 12px;
+              font-weight: 700;
+          }
+      </style>
+    <!-- Here are the parts from html, like buttons etc. -->
+    <div class="container">
+    <select id="dropdown">
+      <option value="Horsens">Horsens</option>
+      <option value="Copenhagen">Copenhagen</option>
+      <option value="Aarhus">Aarhus</option>
+    </select>
+    <button id="button" onclick="showForecast()">Show forecast</button>
+    </div>
+    <div class="container">
+    <table class="table">
+        <tr>
+            <td>Min temperature: </td>
+            <td id="minT"></td>
+
+        </tr>
+        <tr>
+            <td>Max temperature: </td>
+            <td id="maxT"></td>
+        </tr>
+        <tr>
+            <td>Precipitation: </td>
+            <td id="totalP"></td>
+
+        </tr>
+        <tr>
+            <td>Average wind: </td>
+            <td id="averageW"></td>
+
+        </tr>
+    </table>
+</div>
+  </body>
+</html>
