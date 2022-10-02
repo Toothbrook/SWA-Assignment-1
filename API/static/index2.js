@@ -34,6 +34,7 @@ const latest = (city) => {
             count++;
             break;
         }
+        
 
         if (count == 4) {
           j++;
