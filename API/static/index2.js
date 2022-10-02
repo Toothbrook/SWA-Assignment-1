@@ -1,3 +1,34 @@
+function createBaseObject(type, unit,time,place) {
+  return {
+      getType: function() { return type },
+      getUnit: function() { return unit },
+      getTime: function() { return time },
+      getPlace: function() { return place },
+      setType: function(_type) { type = _type },
+      setUnit: function(_unit) { unit = _unit },
+      setTime: function(_time) { time = _time },
+      setPlace: function(_place) { place = _place }
+  }
+}
+
+function createDataObject(type, unit,time,place,value) {
+  return {
+      ...createBaseObject(type,unit,time,place),
+      getValue: function() { return value },
+      setValue: function(_value) { value = _value }
+  }
+}
+
+  function createForecastObject(type, unit,time,place,from) {
+    return {
+        ...createBaseObject(type,unit,time,place),
+        getFrom: function() { return from},
+        getTo: function() { return _to },
+        setFrom: function(_from) { from = _from },
+        setTo: function(_to) { to = _to }
+    }
+  }
+
 
 const latest = (city) => {
   fetch(`http://localhost:8080/data/${city}`, {
@@ -34,7 +65,7 @@ const latest = (city) => {
             count++;
             break;
         }
-        
+
 
         if (count == 4) {
           j++;
@@ -60,7 +91,6 @@ const next24Hours = (city) => {
     .then((res) => (res.ok ? res : Promise.reject(res.statusText)))
     .then((res) => res.json())
     .then((body) => {
-      //TODO
       const length = body.length;
       let j = 0;
       let count = 0;
