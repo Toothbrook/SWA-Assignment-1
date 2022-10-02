@@ -26,6 +26,12 @@
                 font-size: 12px;
                 font-weight: 700;
             }
+            .tableWlines{
+                border: 2px solid black;
+                border-collapse: collapse;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
         </style>
         <div class="container">
             <select id="dropdown">
@@ -64,10 +70,23 @@
         <div class="container">
             <h3>Forecast for the next 24 hours</h3>
         </div>
-
         <div class="container">
-            <p style="color: red;"><i>last method missing</i></p>
-            <ul id="temperatures"></ul>
+            <table class="tableWlines">
+                <tr>
+                    <td class="tableWlines">Time</td>
+                    <td class="tableWlines">Temperature forecast: </td>
+                    <td class="tableWlines">Precipitation forecast: </td>
+                    <td class="tableWlines">Wind speed forecast: </td>
+                    <td class="tableWlines">Cloud coverage forecast: </td>        
+                </tr>
+                <tr>
+                    <td class="tableWlines" id="datetimeForecast"></td>
+                    <td class="tableWlines" id="tempForecast"></td>
+                    <td class="tableWlines" id="precipForecast"></td>
+                    <td class="tableWlines" id="windForecast"></td>
+                    <td class="tableWlines" id="cloudForecast"></td>
+                </tr>
+            </table>
         </div>
 
     </body>
