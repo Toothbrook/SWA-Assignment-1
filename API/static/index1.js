@@ -56,43 +56,41 @@ const wind = (city) => {
     const response = xhr.responseText;
     const body = JSON.parse(response);
     const length = body.length;
-    let i = length - 1;
+    let i = length-1;
     let x = 0;
-    let measureCount = 0;
-    let dataSet = [];
+    let count = 0;
+    let values = [];
     //24 measurements a day * 4 sets each
-    while (i >= length - 96) {
+    while(i>=length - 96) {
       switch (body[i].type) {
         case "temperature":
-          dataSet[x] = { ...dataSet[x], temperature: body[i] };
-          measureCount++;
+          values[x] = { ...values[x], temperature: body[i] };
+          count++;
           break;
         case "wind speed":
-          dataSet[x] = { ...dataSet[x], wind: body[i] };
-          measureCount++;
+          values[x] = { ...values[x], wind: body[i] };
+          count++;
           break;
         case "precipitation":
-          dataSet[x] = { ...dataSet[x], precipitation: body[i] };
-          measureCount++;
+          values[x] = { ...values[x], precipitation: body[i] };
+          count++;
           break;
         case "cloud coverage":
-          dataSet[x] = { ...dataSet[x], cloud: body[i] };
-          measureCount++;
+          values[x] = { ...values[x], cloud: body[i] };
+          count++;
           break;
       }
 
-      if (measureCount === 4) {
+      if (count === 4) {
         x++;
-        measureCount = 0;
+        count = 0;
       }
       i--;
     }
-    //latest measurements of each kind
-    const latest = dataSet[dataSet.length - 1];
-    console.log(latest);
+    const latest = values[values.length - 1];
 
     //returns an array of just wind speed values
-    const windMeasurements = dataSet.map((item) => item.wind.value);
+    const windMeasurements = values.map((item) => item.wind.value);
     const avgWindSpeed =
       //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
       windMeasurements.reduce((item, prev) => item + prev) / 24;
@@ -106,8 +104,8 @@ const wind = (city) => {
 };
 
 const showForecast = () => {
-  var selectingCity = document.getElementById("dropdown").value;
-  temp(selectingCity);
-  precip(selectingCity);
-  wind(selectingCity);
+  var city = document.getElementById("dropdown").value;
+  temp(city);
+  precip(city);
+  wind(city);
 };
