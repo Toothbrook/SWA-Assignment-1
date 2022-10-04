@@ -6,19 +6,30 @@
       align-items: center;
     }
     .navbutton{
-      height: 50px;
-      width: 100px;
+      height: 80px;
+      width: 300px;
       margin: 50px;
+      border-radius: 7px;
+      background-color: black;
+      border: 1px solid black;
+      cursor: pointer;
+      font-size: 16px;
+      color: white;
+      box-shadow: 5px 5px 5px 5px grey;
     }
 
     #buttonText{
         font-size: 24px;
-      }
+        text-decoration: none;
+        color: white;
+    }
 
   </style>
   <div class="topnav">
-    <button class="navButton"><a href="index1.html">Last day's measurements</a></button>
-    <button class="navButton"><a href="index2.html">Forecast for next day</a></button>
+    <button class="navButton"><a id="buttonText" href="index1.html">Last day's measurements</a></button>
+    <button class="navButton"><a id="buttonText" href="index2.html">Forecast for next day</a></button>
+    <button class="navButton"><a id="buttonText" href="index3.html">Add</a></button>
+
 
   </div>
 </html>

@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Page 3</title>
+    </head>
+    <body>
+        <style>
+            .container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            #addButton{
+                height: 24px;
+                background-color: black;
+                border-radius: 7px;
+                border: 1px solid black;
+                cursor: pointer;
+                font-size: 16px;
+                color: white;
+                box-shadow: 2px 2px 2px 2px grey;
+            }
+
+            #temp{
+                margin: 10px;
+            }
+
+            #confirmation{
+                color: green;
+            }
+
+        </style>
+        <script src="index3.js"></script>
+        <div class="container">
+
+            <label for="temp">Temperature: </label><br/>
+            <input type="text" id="temp">degrees C<br/>
+       
+    </div>
+    <div class="container">
+        <button id="addButton" onclick="sendingData()">Add temperature for Horsens</button>
+    </div>
+    <div class="container">
+        <h5 id="confirmation"></h5>
+    </div>
+    </body>
+</html>
